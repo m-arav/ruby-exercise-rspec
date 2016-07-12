@@ -1,18 +1,16 @@
 require 'user_model'
 describe UserModel do
+  subject { UserModel.new('name', 'city', 'age') }
   describe '#initilize' do
     context 'when initialized' do
-      it 'should raise error if 0 arg passed' do
-        expect { UserModel.new }.to raise_error ArgumentError
+      it 'should set name' do
+        expect(subject.user_name).to eql('name')
       end
-      it 'should raise error if 1 arg passed' do
-        expect { UserModel.new(1) }.to raise_error ArgumentError
+      it 'should set city' do
+        expect(subject.user_city).to eql('city')
       end
-      it 'should raise error if 2 arg passed' do
-        expect { UserModel.new(1, 2) }.to raise_error ArgumentError
-      end
-      it 'should pass when 3 arg passed' do
-        expect { UserModel.new(1, 2, 3) }.to_not raise_error
+      it 'should set age' do
+        expect(subject.user_age).to eql('age')
       end
     end
   end
