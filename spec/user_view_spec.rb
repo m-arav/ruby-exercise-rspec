@@ -10,4 +10,9 @@ describe UserView do
       expect(UserView).to respond_to(:read_in_choice)
     end
   end
+  context '.list_plugins' do
+    it 'should be resposive with one argument' do
+      expect(UserView).to respond_to(:list_plugins).with(1).argument
+    end
+  end
 end
