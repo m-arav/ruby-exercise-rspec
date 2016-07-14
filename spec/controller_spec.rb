@@ -17,11 +17,15 @@ describe Controller do
   end
   describe '#capture_user_input' do
     subject(:object) { Controller.new }
+    before(:example) do
+      allow(UserView).to receive(:read_in_data).and_return(['name', 'city', 'age', 'file'])
+      object.capture_user_input
+    end
     context 'capturing input from user' do
-      it 'sets file_name and data_object' do
-        expect(UserView).to receive(:read_in_data).and_return(['name', 'city', 'age', 'file'])
-        object.capture_user_input
+      it 'sets file_name' do
         expect(object.file_name).to eql('file')
+      end
+      it 'sets data_object' do
         expect(object.data_object).to be_an_instance_of(UserModel)
       end
     end
