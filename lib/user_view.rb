@@ -1,16 +1,18 @@
+require_relative 'io_handler'
 # Display components
 class UserView
   def self.read_in_data
+    result = []
     ['Name', 'City', 'Age', 'File name'].each do |content|
       print "#{content} : "
-      result << gets.chomp
+      result << IoHandler.input_handler
     end
     result
   end
 
   def self.read_in_choice
     print 'Enter your choice : '
-    gets.chomp.to_i
+    IoHandler.input_handler.to_i
   end
 
   def self.list_plugins(list_of_plugins)

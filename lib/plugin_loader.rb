@@ -13,6 +13,7 @@ class PluginLoader
       @available_plugins << file
     end
     @available_plugins = [0] if @available_plugins.empty?
+    Dir.chdir('..')
     @available_plugins
   end
 
